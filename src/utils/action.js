@@ -33,9 +33,9 @@ export const gotoHref = (href) => {
 /**
  * 跳转搜索
  */
- export const gotoSearch = (text, url) => {
-  console.log(text, url)
-  const href  = `${url}?q=${text}`
+ export const gotoSearch = (text, url, ) => {
+  console.log(encodeURIComponent(text), text, url)
+  const href  = url.replace(/([&|?]{1}.+=)key/,`$1${encodeURIComponent(text)}`)
   updataHref(href)
   window.open(href, "_blank");
 };
