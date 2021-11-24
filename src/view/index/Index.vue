@@ -39,9 +39,21 @@ const pro4 = axios.get("/navigation/base/fourth").then((res) => {
   return res
 });
 
+const fifth = ref(null);
+const pro5 = axios.get("/navigation/base/middle/1.html").then(res => {
+  fifth.value = res.data.data
+  return res
+})
+
+const sixth = ref(null);
+const pro6 = axios.get("/navigation/base/left").then((res) => {
+  sixth.value = res.data.data
+  return res
+})
+
 const loadStatus = ref(false)
 const pros = () => {
-  Promise.all([pro1, pro2, pro3, pro4]).then(ress => {
+  Promise.all([pro1, pro2, pro3, pro4, pro5, pro6]).then(ress => {
     console.log(ress, '请求完毕')
     loadStatus.value = true
   })
@@ -98,7 +110,7 @@ adOffsetB.value = viewWidth.value/2 - 800 > 0 ? viewWidth.value/2 - 800 : 10
         <SiteTypesListN :data="third.n"/>
 
         <div class="m-bt-15">
-          <RecomNews/>
+          <RecomNews :data="sixth"/>
         </div>
 
         <div class="m-bt-15">
@@ -111,7 +123,7 @@ adOffsetB.value = viewWidth.value/2 - 800 > 0 ? viewWidth.value/2 - 800 : 10
 
         <!-- 今日热点 -->
         <div class="m-bt-15">
-          <TodayHotNews/>
+          <TodayHotNews :data="fifth"/>
         </div>
 
         <!-- 网站分类 -->
@@ -194,11 +206,11 @@ adOffsetB.value = viewWidth.value/2 - 800 > 0 ? viewWidth.value/2 - 800 : 10
   max-width: 200px;
   z-index: 1001;
   &--l {
-   top: 100px;
+   top: 200px;
    left: 10px;
   }
   &--r {
-    top: 100px;
+    top: 200px;
     right: 10px;
   }
 }
