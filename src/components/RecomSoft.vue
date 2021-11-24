@@ -41,7 +41,7 @@ const changeTab = (index) => {
 
 <style lang="less" scoped>
 .recom {
-  min-height: 630px;
+  min-height: 599px;
   &-tabs {
     margin: 8px 0;
     font-family: PingFangSC-Regular;
@@ -53,7 +53,7 @@ const changeTab = (index) => {
   }
   &-row {
     .item {
-      margin: 5px 0;
+      margin: 4px 0;
     }
     img {
       width: 16px;

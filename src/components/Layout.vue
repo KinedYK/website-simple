@@ -3,8 +3,10 @@ import CommonHeader from "./CommonHeader.vue";
 import {ref} from 'vue'
 
 const isIframe = ref(false)
+const myIrfameUrl = ref(null)
 axios.get('/navigation/base/page/0').then(res => {
-  isIframe.value = !!(+res.data.data)
+  isIframe.value = !!(res.data.data)
+  myIrfameUrl.value = res.data.data
 })
 </script>
 
@@ -14,7 +16,7 @@ axios.get('/navigation/base/page/0').then(res => {
       v-resize="{ log: true }"
       width="100%"
       height="100%"
-      :src="iframeUrl"
+      :src="myIrfameUrl || iframeUrl"
       frameborder="0"
     ></iframe>
   </div>
